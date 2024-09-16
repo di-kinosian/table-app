@@ -6,21 +6,27 @@
 
   &Header {
     height: 64px;
-    padding: 0 50px;
     flex-shrink: 0;
     // border-bottom: 1px solid #d3d3d3;
     background-color: #fff;
     display: flex;
     align-items: center;
+    justify-content: center;
     font-weight: bold;
     color: #14923e;
     font-size: 24px;
+
+    &Content {
+      max-width: 1200px;
+      padding: 0 24px;
+      box-sizing: border-box;
+      flex-grow: 1;
+    }
   }
 
   &Content {
     max-width: 1200px;
     width: 100%;
-    padding: 0 24px;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
@@ -29,12 +35,13 @@
   }
 
   &Panel {
-    padding: 24px 0;
+    padding: 24px;
     flex-shrink: 0;
     display: flex;
-    gap: 24px;
+    gap: 12px;
   }
   &Table {
+    padding: 0 24px;
     overflow: auto;
   }
 }

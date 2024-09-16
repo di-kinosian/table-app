@@ -1,8 +1,6 @@
-// usersSlice.ts
 import { createSlice, PayloadAction, createAsyncThunk } from "@reduxjs/toolkit";
 import { User } from "../types";
 
-// Define the initial state type
 interface UsersState {
   users: User[];
   filteredUsers: User[];
@@ -12,7 +10,6 @@ interface UsersState {
   searchBy: string;
 }
 
-// Initial state
 const initialState: UsersState = {
   users: [],
   filteredUsers: [],
@@ -22,7 +19,6 @@ const initialState: UsersState = {
   searchBy: "name",
 };
 
-// Thunk to fetch users from server
 export const fetchUsers = createAsyncThunk<User[]>(
   "users/fetchUsers",
   async () => {
@@ -36,12 +32,6 @@ const usersSlice = createSlice({
   name: "users",
   initialState,
   reducers: {
-    setSearchQuery: (state, action: PayloadAction<string>) => {
-      state.searchValue = action.payload;
-      state.filteredUsers = state.users.filter((user) =>
-        user.name.toLowerCase().includes(state.searchValue.toLowerCase()),
-      );
-    },
     onChangeSearchBy: (state, action: PayloadAction<string>) => {
       state.searchBy = action.payload;
       state.searchValue = "";
@@ -75,7 +65,5 @@ const usersSlice = createSlice({
   },
 });
 
-// Export actions and reducer
-export const { setSearchQuery, onChangeSearchBy, onSearch } =
-  usersSlice.actions;
+export const { onChangeSearchBy, onSearch } = usersSlice.actions;
 export default usersSlice.reducer;

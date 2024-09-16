@@ -1,16 +1,8 @@
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import React, { useCallback } from 'react';
 import cn from 'classnames';
 import { ITableColumn, ITableHeaderProps } from '..';
 import styles from '../Table.module.scss';
 
-/**
- * Table Header columns rendering strategy:
- * - sticky columns rendered separately at root level for top-most fixation
- * - all other columns wrapped inside scrollable container:
- * - - shadow copies of sticky column without content to keep correct alignment
- * - - the rest of regular columns
- */
 const TableHeader = <T extends Record<string, any>>(props: ITableHeaderProps<T>) => {
   const renderHeaderCell = useCallback((column: ITableColumn<T>) => {
     return (

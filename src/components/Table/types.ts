@@ -46,8 +46,6 @@ interface ITableRowProps<T> {
 
 interface ITableRowComponentProps<T> {
   columns: ITableColumn<T>[];
-  expandableContent?: (data: ITableRecord<T>) => JSX.Element;
-  onSelectRow?: (data: T) => void;
   record: ITableRecord<T>;
   rowHeight?: number;
   rowKey: ITableRecordKey<T>;
@@ -58,20 +56,14 @@ interface ITableRowComponentProps<T> {
 interface ITableBodyProps<T> {
   columns: ITableColumn<T>[];
   dataList?: ITableRecord<T>[];
-  emptyState?: ReactElement;
-  expandableContent?: (record: ITableRecord<T>) => JSX.Element;
-  fetchMore?: () => void;
-  hasMore?: boolean;
   headerHeight?: number;
   isLoading?: boolean;
   isScrollable: boolean;
   loader?: ReactElement;
   onScroll?: (event: React.UIEvent<HTMLDivElement, UIEvent>) => void;
-  onSelectRow?: (data: T) => void;
   rowHeight?: number;
   rowKey: ITableRecordKey<T>;
   scrolledHorizontally?: boolean;
-  tableBody?: React.ComponentType<ITableBodyProps<T>> | null;
   width: number;
 }
 
@@ -79,20 +71,12 @@ interface ITableProps<T> {
   className?: string;
   columns: ITableColumn<T>[];
   dataList?: T[];
-  emptyState?: ReactElement;
-  expandableContent?: (record: ITableRecord<T>) => JSX.Element;
-  expandedRowKeys?: string[];
   fetchMore?: () => void;
-  hasMore?: boolean;
   headerHeight?: number;
   isLoading?: boolean;
   loader?: ReactElement;
-  onScroll?: (event: React.UIEvent) => void;
-  onSelectRow?: (data: T) => void;
   rowHeight?: number;
   rowKey: ITableRecordKey<T>;
-  style?: React.CSSProperties;
-  tableBody?: React.ComponentType<ITableBodyProps<T>> | null;
 }
 
 interface ITableCellProps<T> {
